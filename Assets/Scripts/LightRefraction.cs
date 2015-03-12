@@ -6,16 +6,18 @@ public class LightRefraction : MonoBehaviour
 {
 	private LineRenderer lineRenderer;
 	public Vector3 direction;
-	public bool enable=false;
-	public float distance=50.0f;
+	public bool enable = false;
+	public float distance = 50.0f;
+
+
 
 	// Use this for initialization
 	void Start () 
 	{
 		lineRenderer = GetComponent<LineRenderer>();
+
 		direction = Vector3.up;
 	}
-	
 	// Update is called once per frame
 	void Update () 
 	{
@@ -24,39 +26,50 @@ public class LightRefraction : MonoBehaviour
 
 	public void Laser()
 	{
-		if (enable) {
+
+		if (enable) 
+		{
 			lineRenderer.enabled=true;
 
+			var endPoint = transform.position + direction * 10000.0f;
+
+
 			RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, Mathf.Infinity);
+			Debug.DrawRay(transform.position, direction * 50, Color.black);
 			lineRenderer.SetVertexCount(2);
 			lineRenderer.SetPosition(0, transform.position);
-			lineRenderer.SetPosition(1, Vector3.up*distance);
 
-			if (hit!=null)
+			if (hit!=null && hit.collider != null )
 			{
-				if (hit.collider.tag=="Goal")
+				if (hit.collider.tag == "Goal")
 				{
 					Debug.Log ("Puzzle Solved");
 				}
 				else
 				{
-					Vector3 reflectDir=Vector3.Reflect(direction,hit.normal);
-					LightRefraction laser=hit.collider.gameObject.GetComponent<LightRefraction>();
-					laser.enable=true;
-					laser.direction=reflectDir;
+					endPoint = hit.point;
+					Vector3 reflectDir = Vector3.Reflect(-transform.up,hit.normal);
+					LightRefraction laser = hit.collider.gameObject.GetComponent<LightRefraction>();
+					laser.enable = true;
+					laser.direction = Vector3.Reflect(reflectDir, hit.normal);
 				}
 			}
+
+			lineRenderer.SetPosition(1, endPoint);
+
+
 		}
 
 
-		/*
-		Debug.DrawRay(transform.position, -transform.up * 50, Color.black);
+
+		/*Debug.DrawRay(transform.position, -transform.up * 50, Color.black);
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, Mathf.Infinity);
 
 		lineRenderer.enabled = true;
 		lineRenderer.SetVertexCount(2);
 		lineRenderer.SetPosition(0, transform.position);
-		lineRenderer.SetPosition(1, hit.point);
+		lineRenderer.SetPosition(1, transform.position);
+		lineRenderer.SetWidth(0.5f, 0.5f);
 
 
 		if( hit != null && hit.collider != null)
@@ -66,8 +79,10 @@ public class LightRefraction : MonoBehaviour
 			Debug.DrawRay(hit.point, inDirection * 100, Color.red);
 			hit = Physics2D.Raycast(hit.point + hit.normal * 0.01f, inDirection, Mathf.Infinity);
 
-			lineRenderer.SetPosition(0, inDirection);
-			slineRenderer.SetPosition(1, hit.point);
+			crateLineRenderer.enabled = true;
+			crateLineRenderer.SetVertexCount(2);
+			crateLineRenderer.SetPosition(0, hit.normal);
+			crateLineRenderer.SetPosition(1, hit.point);
 
 
 			if (hit != null && hit.collider != null)
