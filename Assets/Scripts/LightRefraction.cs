@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//This is light refraction script
 public class LightRefraction : MonoBehaviour 
 {
 	private LineRenderer lineRenderer;
