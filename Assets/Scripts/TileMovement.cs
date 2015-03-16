@@ -4,7 +4,7 @@ using UnityEngine;
 class TileMovement : MonoBehaviour 
 {
 	private float moveSpeed = 3f;
-	private float gridSize = 0.5f;
+	public float gridSize = 1.0f;
 	private enum Orientation 
 	{
 		Horizontal,
@@ -20,6 +20,7 @@ class TileMovement : MonoBehaviour
 	private float t;
 	private float factor;
 	
+
 	public void Update() 
 	{
 		if (!isMoving) 
@@ -41,6 +42,17 @@ class TileMovement : MonoBehaviour
 				StartCoroutine(move(transform));
 			}
 		}
+	}
+
+	void OnCollisionEnter2D(Collision2D coll) 
+	{
+		if (coll != null)
+		{
+			gameObject.transform.rotation = Quaternion.identity;
+			endPosition = startPosition;
+			Debug.Log("collided");
+		}
+		
 	}
 	
 	public IEnumerator move(Transform transform) 

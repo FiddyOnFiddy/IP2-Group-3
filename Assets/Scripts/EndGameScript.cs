@@ -16,11 +16,11 @@ public class EndGameScript : MonoBehaviour
 	
 	}
 
-	void OnTriggerEnter(Collider other)
+	void OnTriggerEnter2D (Collider2D other)
 	{
-		if(other.collider.tag == "Player")
+		if(other.gameObject.tag == "Player")
 		{
-			Application.LoadLevel("EndMenu");
+			Application.LoadLevel("Level02");
 		}
 	}
 }

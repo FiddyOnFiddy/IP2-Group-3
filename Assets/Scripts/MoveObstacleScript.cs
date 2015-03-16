@@ -4,8 +4,10 @@ using System.Collections;
 public class MoveObstacleScript : MonoBehaviour 
 {
 
-	private float radiusPush = 0.5f;
-	private float radiusPull = 0.6f;
+	private float radiusPush = 1.0f;
+	private float radiusPull = 1.1f;
+	public float pullHorizontal = 0.4f;
+	public float pullVertical = 0.6f;
 	public GameObject player;
 	public GameObject left;
 	public GameObject right;
@@ -53,20 +55,27 @@ public class MoveObstacleScript : MonoBehaviour
 		{
 			if(Input.GetAxis("Horizontal") > 0)
 			{
-				//iTween.MoveTo (this.gameObject, gameObject.transform.TransformDirection(new Vector3(right.transform.position.x, right.transform.position.y, 0)), 0.5f);
-				iTween.MoveTo (this.gameObject, new Vector3(right.transform.position.x, right.transform.position.y, 0), 0.3f);
+				//iTween.MoveTo (this.gameObject, new Vector3(right.transform.position.x, right.transform.position.y, 0), 0.3f);
+				iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(1,0,0),"time",0.3,"oncomplete","OnComplete"));
+
 			}
 			else if (Input.GetAxis ("Horizontal") < 0)
 			{
-				iTween.MoveTo (this.gameObject, new Vector3(left.transform.position.x, left.transform.position.y, 0), 0.3f);
+				//iTween.MoveTo (this.gameObject, new Vector3(left.transform.position.x, left.transform.position.y, 0), 0.3f);
+				iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(-1,0,0),"time",0.3,"oncomplete","OnComplete"));
+
 			}
 			else if (Input.GetAxis("Vertical") > 0 )
 			{
-				iTween.MoveTo (this.gameObject, new Vector3(up.transform.position.x, up.transform.position.y, 0), 0.3f);
+				//iTween.MoveTo (this.gameObject, new Vector3(up.transform.position.x, up.transform.position.y, 0), 0.3f);
+				iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(0,1,0),"time",0.3,"oncomplete","OnComplete"));
+
 			}
 			else if (Input.GetAxis("Vertical") < 0 )
 			{
-				iTween.MoveTo (this.gameObject, new Vector3(down.transform.position.x, down.transform.position.y, 0), 0.3f);
+				//iTween.MoveTo (this.gameObject, new Vector3(down.transform.position.x, down.transform.position.y, 0), 0.3f);
+				iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(0,-1,0),"time",0.3,"oncomplete","OnComplete"));
+
 			}
 		}
 
@@ -93,7 +102,7 @@ public class MoveObstacleScript : MonoBehaviour
 					//iTween.MoveTo (this.gameObject, new Vector3(player.transform.position.x, player.transform.position.y, 0), 0.3f);
 					//iTween.MoveBy(this.gameObject, new Vector3(1, 0, 0), 0.7f);
 
-					iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(1,0,0),"time",0.7,"oncomplete","OnComplete"));
+					iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(1,0,0),"time",pullHorizontal,"oncomplete","OnComplete"));
 				}
 			}
 
@@ -102,7 +111,7 @@ public class MoveObstacleScript : MonoBehaviour
 				if (Input.GetAxis ("Horizontal") < 0 && hitLeft.collider.tag == "Player")
 				{
 					//iTween.MoveBy(this.gameObject, new Vector3(-1, 0, 0), 0.7f);
-					iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(-1,0,0),"time",0.7,"oncomplete","OnComplete"));
+					iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(-1,0,0),"time",pullHorizontal,"oncomplete","OnComplete"));
 
 				}
 			}
@@ -111,7 +120,7 @@ public class MoveObstacleScript : MonoBehaviour
 				if (Input.GetAxis("Vertical") > 0 && hitUp.collider.tag == "Player")
 				{
 					//iTween.MoveBy(this.gameObject, new Vector3(0, 1, 0), 0.7f);
-					iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(0,1,0),"time",0.7,"oncomplete","OnComplete"));
+					iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(0,1,0),"time",pullVertical,"oncomplete","OnComplete"));
 
 				}
 			}
@@ -120,7 +129,7 @@ public class MoveObstacleScript : MonoBehaviour
 				if (Input.GetAxis("Vertical") < 0 && hitDown.collider.tag == "Player")
 				{
 					//iTween.MoveBy(this.gameObject, new Vector3(1, -1, 0), 0.7f);
-					iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(0,-1,0),"time",0.7,"oncomplete","OnComplete"));
+					iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(0,-1,0),"time",pullVertical,"oncomplete","OnComplete"));
 
 				}
 			}
