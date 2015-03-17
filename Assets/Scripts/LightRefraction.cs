@@ -4,10 +4,12 @@ using System.Collections;
 //This is light refraction script
 public class LightRefraction : MonoBehaviour 
 {
-	private LineRenderer lineRenderer;
+	public LineRenderer lineRenderer;
 	public Vector3 direction;
 	public bool enable = false;
 	public float distance = 50.0f;
+	public Transform rayCastOrigin;
+	public LightRefraction lasthit;
 
 
 
@@ -16,7 +18,8 @@ public class LightRefraction : MonoBehaviour
 	{
 		lineRenderer = GetComponent<LineRenderer>();
 
-		direction = Vector3.up;
+		direction = transform.up;
+		lasthit = null;
 	}
 	// Update is called once per frame
 	void Update () 
@@ -24,41 +27,58 @@ public class LightRefraction : MonoBehaviour
 		Laser();
 	}
 
+	public void NotHit()
+	{
+		if (lasthit) {
+						if (lasthit.lasthit){
+								Debug.Log ("Now turn off laser on next one");
+								lasthit.lasthit.NotHit();
+								lasthit.lasthit.enable = false;
+								lasthit.lasthit.lineRenderer.enabled = false;
+								lasthit.lasthit = null;
+						}
+						lasthit.enable = false;
+						lasthit.lineRenderer.enabled = false;
+						lasthit = null;
+				}
+	}
+
 	public void Laser()
 	{
 
-		if (enable) 
-		{
-			lineRenderer.enabled=true;
+		if (enable) {
+						lineRenderer.enabled = true;
 
-			var endPoint = transform.position + direction * 10000.0f;
+						var endPoint = transform.position + (direction * 10000.0f);
 
 
-			RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, Mathf.Infinity);
-			Debug.DrawRay(transform.position, direction * 50, Color.black);
-			lineRenderer.SetVertexCount(2);
-			lineRenderer.SetPosition(0, transform.position);
+						RaycastHit2D hit = Physics2D.Raycast (rayCastOrigin.position, direction, Mathf.Infinity);
+						Debug.DrawRay (transform.position, direction * 50, Color.black);
+						lineRenderer.SetVertexCount (2);
+						lineRenderer.SetPosition (0, transform.position);
 
-			if (hit!=null && hit.collider != null )
-			{
-				if (hit.collider.tag == "Goal")
-				{
-					Debug.Log ("Puzzle Solved");
+
+						if (hit.collider != null) {
+								if (hit.collider.tag == "Goal") {
+										Debug.Log ("Puzzle Solved");
+								} else {
+										endPoint = hit.point;
+										//Vector3 reflectDir = Vector3.Reflect(-transform.up,hit.normal);
+										lasthit = hit.collider.gameObject.GetComponent<LightRefraction> ();
+										lasthit.enable = true;
+										//laser.direction = Vector3.Reflect(reflectDir, hit.normal);
+								}
+						}
+
+						if (hit.collider == null && lasthit) {
+								Debug.Log("Moved");
+								NotHit();
+						}
+
+						lineRenderer.SetPosition (1, endPoint);
+
+
 				}
-				else
-				{
-					endPoint = hit.point;
-					Vector3 reflectDir = Vector3.Reflect(-transform.up,hit.normal);
-					LightRefraction laser = hit.collider.gameObject.GetComponent<LightRefraction>();
-					laser.enable = true;
-					laser.direction = Vector3.Reflect(reflectDir, hit.normal);
-				}
-			}
-
-			lineRenderer.SetPosition(1, endPoint);
-
-
-		}
 
 
 
