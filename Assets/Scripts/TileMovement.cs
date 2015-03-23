@@ -21,10 +21,18 @@ class TileMovement : MonoBehaviour
 	private float factor;
 
 	private float radius = 0.5f;
+
+		public Sprite playerLeft;
+		public Sprite playerRight;
+		public Sprite playerForward;
+		public Sprite playerBackwards;
 	
 
 	public void Update() 
 	{
+
+				WalkingAnimation ();
+
 		if (!isMoving) 
 		{
 			input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -56,6 +64,31 @@ class TileMovement : MonoBehaviour
 		}
 		
 	}
+
+		void WalkingAnimation()
+		{
+				if (Input.GetAxis ("Horizontal") < 0) 
+				{
+						SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
+						spriteRenderer.sprite = playerLeft;
+				}
+				if (Input.GetAxis ("Horizontal") > 0) 
+				{
+						SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
+						spriteRenderer.sprite = playerRight;
+				}
+				if (Input.GetAxis ("Vertical") > 0) 
+				{
+						SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
+						spriteRenderer.sprite = playerForward;
+				}
+				if (Input.GetAxis ("Vertical") < 0) 
+				{
+						SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
+						spriteRenderer.sprite = playerBackwards;
+				}
+
+		}
 	
 	public IEnumerator move(Transform transform) 
 	{
