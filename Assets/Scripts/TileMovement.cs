@@ -19,6 +19,8 @@ class TileMovement : MonoBehaviour
 	private Vector3 endPosition;
 	private float t;
 	private float factor;
+
+	private float radius = 0.5f;
 	
 
 	public void Update() 

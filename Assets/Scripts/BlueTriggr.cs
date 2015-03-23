@@ -20,6 +20,7 @@ public class BlueTriggr : MonoBehaviour
 	{
 		if(other.gameObject.name == "blueCrate")
 		{
+			other.gameObject.SetActive(false);
 			OpenDoor openDoor = GameObject.Find("endSceneTrigger").GetComponent<OpenDoor>();
 			openDoor.triggerCount ++;
 			Debug.Log (openDoor.triggerCount);
