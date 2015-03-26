@@ -22,10 +22,10 @@ class TileMovement : MonoBehaviour
 
 	private float radius = 0.5f;
 
-		public Sprite playerLeft;
-		public Sprite playerRight;
-		public Sprite playerForward;
-		public Sprite playerBackwards;
+	public Sprite playerLeft;
+	public Sprite playerRight;
+	public Sprite playerForward;
+	public Sprite playerBackwards;
 	
 
 	public void Update() 

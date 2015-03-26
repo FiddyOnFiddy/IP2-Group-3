@@ -6,8 +6,8 @@ public class MoveObstacleScript : MonoBehaviour
 
 	private float radiusPush = 1.0f;
 	private float radiusPull = 1.1f;
-	public float pullHorizontal = 0.4f;
-	public float pullVertical = 0.6f;
+	public float pullHorizontal = 0.7f;
+	public float pullVertical = 0.7f;
 	public GameObject player;
 	public GameObject left;
 	public GameObject right;
@@ -26,19 +26,6 @@ public class MoveObstacleScript : MonoBehaviour
 	{
 		MoveObstacle();
 	}
-
-	/*void CheckForMove()
-	{
-		if(prevPos != gameObject.transform.position)
-		{
-			isMoving = true;
-			prevPos = gameObject.transform.position;
-		}
-		else
-		{
-			isMoving = false;
-		}
-	}*/
 
 	void MoveObstacle()
 	{

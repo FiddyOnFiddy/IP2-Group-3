@@ -18,7 +18,7 @@ public class RedTrigger : MonoBehaviour
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
-		if(other.gameObject.name == "redCrate")
+		if(other.gameObject.name == "CrateRed")
 		{
 			other.gameObject.SetActive(false);
 			OpenDoor openDoor = GameObject.Find("endSceneTrigger").GetComponent<OpenDoor>();
