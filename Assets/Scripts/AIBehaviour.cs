@@ -8,6 +8,7 @@ public class AIBehaviour : MonoBehaviour
 	public List<Transform> path;
 	public Transform pathGroup;
 	public int currentPathObj;
+	public GameObject player;
 
 	public enum PathReset
 	{
@@ -23,7 +24,7 @@ public class AIBehaviour : MonoBehaviour
 	private float t;
 
 	public float moveSpeed = 0.1f;
-	private float radius = 0.000000000000000000001f;
+	private float radius = 1f;
 
 	// Use this for initialization
 	void Start () 
@@ -45,6 +46,15 @@ public class AIBehaviour : MonoBehaviour
 		}
 	}
 
+	/*void CollisionDetection()
+	{
+		if(gameObject.transform.position = player.transform.position)
+		{
+			player.transform.position = GameObject.FindGameObjectWithTag("Checkpoint").transform.position;
+
+		}
+	}*/
+
 	void Move()
 	{
 		float dis = Vector3.Distance(gameObject.transform.position, path[currentPathObj].position);
@@ -56,23 +66,23 @@ public class AIBehaviour : MonoBehaviour
 
 		if(currentPathObj >= path.Count)
 		{
-			if(pathReset == PathReset.loop)
+			/*if(pathReset == PathReset.loop)
 			{
 				currentPathObj = 0;
 			}
 			else if(pathReset == PathReset.reverse)
-			{
+			{*/
 				currentPathObj = 0;
 				path.Reverse();
-			}
+			/*}
 			else if (pathReset == PathReset.random)
 			{
 				currentPathObj = 0;
 				pathReset = GetRandomEnum<PathReset>();
-			}
+			}*/
 		}
 
-		iTween.MoveTo (gameObject, new Vector3(path[currentPathObj].position.x, path[currentPathObj].position.y, 0.0f), moveSpeed);
+		iTween.MoveTo (gameObject, new Vector3(path[currentPathObj].position.x, path[currentPathObj].position.y , gameObject.transform.position.z), moveSpeed);
 	}
 
 	void GetPath()

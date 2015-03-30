@@ -5,21 +5,16 @@ public class OpenDoor : MonoBehaviour
 {
 	public int triggerCount = 0;
 
-	public GameObject wall;
-	public GameObject wall2;
-	public GameObject wall3;
-	public GameObject wall4;
-	public GameObject wall5;
+	public GameObject door1;
 
-	public GameObject wall6;
-	public GameObject wall7;
-	public GameObject wall8;
-	public GameObject wall9;
+	public GameObject door2;
+	public GameObject door3;
 
-	public GameObject wall10;
-	public GameObject wall11;
-	public GameObject wall12;
-	public GameObject wall13;
+	public GameObject barrier;
+	public GameObject barrier2;
+
+	public Camera cameraMain;
+	public Camera camera2;
 
 	// Use this for initialization
 	void Start () 
@@ -32,27 +27,16 @@ public class OpenDoor : MonoBehaviour
 	{
 		if(triggerCount == 3)
 		{
-			wall.SetActive(false);
-			wall2.SetActive(false);
-			wall3.SetActive(false);
-			wall4.SetActive(false);
-			wall5.SetActive(false);
+			iTween.MoveBy(door1.gameObject, new Vector3(-1, 0, 0), 1.0f);
+			door1.SetActive(false);
 		}
 
 		if(triggerCount == 6)
 		{
-			wall6.SetActive(false);
-			wall7.SetActive(false);
-			wall8.SetActive(false);
-			wall9.SetActive(false);
-		}
-
-		if(triggerCount == 9)
-		{
-			wall10.SetActive(false);
-			wall11.SetActive(false);
-			wall12.SetActive(false);
-			wall13.SetActive(false);
+			iTween.MoveBy(barrier.gameObject, new Vector3(-1, 0, 0), 1.0f);
+			barrier.SetActive(false);
+			iTween.MoveBy(barrier2.gameObject, new Vector3(1, 0, 0), 1.0f);
+			barrier2.SetActive(false);
 		}
 	}
 
@@ -60,7 +44,12 @@ public class OpenDoor : MonoBehaviour
 	{
 		if(other.gameObject.tag == "Player")
 		{
-			Application.LoadLevel ("Level01");
+			iTween.MoveBy(door2.gameObject, new Vector3(-1, 0, 0), 1.0f);
+			door2.SetActive(false);
+			iTween.MoveBy(door3.gameObject, new Vector3(1, 0, 0), 1.0f);
+			door3.SetActive(false);
+			cameraMain.enabled = false;
+			camera2.enabled = true;
 		}
 	}
 }

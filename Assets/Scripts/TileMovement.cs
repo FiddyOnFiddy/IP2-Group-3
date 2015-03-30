@@ -3,7 +3,7 @@ using UnityEngine;
 
 class TileMovement : MonoBehaviour 
 {
-	private float moveSpeed = 3f;
+	public float moveSpeed = 3f;
 	public float gridSize = 1.0f;
 	private enum Orientation 
 	{
@@ -26,12 +26,19 @@ class TileMovement : MonoBehaviour
 	public Sprite playerRight;
 	public Sprite playerForward;
 	public Sprite playerBackwards;
+
+	public GameObject left;
+	public GameObject right;
+	public GameObject up;
+	public GameObject down;
 	
 
 	public void Update() 
 	{
 
-				WalkingAnimation ();
+		WalkingAnimation ();
+
+
 
 		if (!isMoving) 
 		{
@@ -54,6 +61,7 @@ class TileMovement : MonoBehaviour
 		}
 	}
 
+
 	void OnCollisionEnter2D(Collision2D coll) 
 	{
 		if (coll != null)
@@ -64,6 +72,7 @@ class TileMovement : MonoBehaviour
 		}
 		
 	}
+
 
 		void WalkingAnimation()
 		{

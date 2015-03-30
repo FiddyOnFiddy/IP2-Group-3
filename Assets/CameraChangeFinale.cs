@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GreenTrigger : MonoBehaviour 
+public class CameraChangeFinale : MonoBehaviour
 {
+	public Camera mainCamera;
 
 	// Use this for initialization
 	void Start () 
@@ -18,12 +19,11 @@ public class GreenTrigger : MonoBehaviour
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
-		if(other.gameObject.name == "CrateGreen")
+		if(other.gameObject.name == "Player")
 		{
-			other.gameObject.SetActive(false);
 			OpenDoor openDoor = GameObject.Find("doorTrigger").GetComponent<OpenDoor>();
-			openDoor.triggerCount ++;
-			Debug.Log (openDoor.triggerCount);
+			openDoor.cameraMain.enabled = false;
+			mainCamera.enabled = true;
 		}
 	}
 }

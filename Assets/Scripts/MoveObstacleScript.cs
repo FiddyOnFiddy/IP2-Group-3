@@ -106,7 +106,7 @@ public class MoveObstacleScript : MonoBehaviour
 
 				}
 			}
-			if(hitDown != null && hitDown.collider != null)
+			if(hitDown != null && hitDown.collider != null )
 			{
 				if (Input.GetAxis("Vertical") < 0 && hitDown.collider.tag == "Player")
 				{

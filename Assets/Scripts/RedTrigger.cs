@@ -21,7 +21,7 @@ public class RedTrigger : MonoBehaviour
 		if(other.gameObject.name == "CrateRed")
 		{
 			other.gameObject.SetActive(false);
-			OpenDoor openDoor = GameObject.Find("endSceneTrigger").GetComponent<OpenDoor>();
+			OpenDoor openDoor = GameObject.Find("doorTrigger").GetComponent<OpenDoor>();
 			openDoor.triggerCount++;
 			Debug.Log (openDoor.triggerCount);
 		}
