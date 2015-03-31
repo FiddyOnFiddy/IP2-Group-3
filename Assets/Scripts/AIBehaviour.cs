@@ -36,24 +36,20 @@ public class AIBehaviour : MonoBehaviour
 	void Update () 
 	{
 		Move();
+		CollisionDetection();
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
+	void CollisionDetection()
 	{
-		if(other.gameObject.tag == "Player")
-		{
-			other.gameObject.transform.position = GameObject.FindGameObjectWithTag("Checkpoint").transform.position;
-		}
-	}
+		float distance = Vector3.Distance(gameObject.transform.position, player.transform.position);
+		Debug.DrawLine(gameObject.transform.position, player.transform.position);
 
-	/*void CollisionDetection()
-	{
-		if(gameObject.transform.position = player.transform.position)
+
+		if(distance < 0.5f)
 		{
 			player.transform.position = GameObject.FindGameObjectWithTag("Checkpoint").transform.position;
-
 		}
-	}*/
+	}
 
 	void Move()
 	{
@@ -66,20 +62,15 @@ public class AIBehaviour : MonoBehaviour
 
 		if(currentPathObj >= path.Count)
 		{
-			/*if(pathReset == PathReset.loop)
+			if(pathReset == PathReset.loop)
 			{
 				currentPathObj = 0;
 			}
 			else if(pathReset == PathReset.reverse)
-			{*/
-				currentPathObj = 0;
-				path.Reverse();
-			/*}
-			else if (pathReset == PathReset.random)
 			{
 				currentPathObj = 0;
-				pathReset = GetRandomEnum<PathReset>();
-			}*/
+				path.Reverse();
+			}
 		}
 
 		iTween.MoveTo (gameObject, new Vector3(path[currentPathObj].position.x, path[currentPathObj].position.y , gameObject.transform.position.z), moveSpeed);

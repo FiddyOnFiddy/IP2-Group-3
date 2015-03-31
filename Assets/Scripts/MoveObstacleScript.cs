@@ -13,7 +13,7 @@ public class MoveObstacleScript : MonoBehaviour
 	public GameObject right;
 	public GameObject up;
 	public GameObject down;
-
+	public bool canMove = false;
 
 	// Use this for initialization
 	void Start () 

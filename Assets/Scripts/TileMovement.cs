@@ -36,9 +36,20 @@ class TileMovement : MonoBehaviour
 	public void Update() 
 	{
 
+		RaycastHit2D hitRight = Physics2D.Raycast(right.transform.position, Vector2.right, 0.3f );
+		Debug.DrawRay(right.transform.position, Vector3.right * 0.1f, Color.black);
+		
+		RaycastHit2D hitLeft = Physics2D.Raycast(left.transform.position, -Vector2.right, 0.3f);
+		Debug.DrawRay(left.transform.position, -Vector3.right * 0.1f, Color.black);
+		
+		RaycastHit2D hitUp = Physics2D.Raycast(up.transform.position, Vector2.up, 0.3f);
+		Debug.DrawRay(up.transform.position, Vector3.up * 0.1f, Color.black);
+		
+		RaycastHit2D hitDown = Physics2D.Raycast(down.transform.position, -Vector2.up, 0.3f);
+		Debug.DrawRay(down.transform.position, Vector3.down * 0.1f, Color.white);
+	
+
 		WalkingAnimation ();
-
-
 
 		if (!isMoving) 
 		{
@@ -56,7 +67,26 @@ class TileMovement : MonoBehaviour
 			
 			if (input != Vector2.zero) 
 			{
-				StartCoroutine(move(transform));
+				if(Input.GetAxis("Vertical") < 0 && hitDown != null && hitDown.collider != null)
+				{
+					Debug.Log("Collided");
+				}
+				else if(Input.GetAxis("Vertical") > 0 && hitUp != null && hitUp.collider != null)
+				{
+					Debug.Log("Collided");
+				}
+				else if(Input.GetAxis("Horizontal") < 0 && hitLeft != null && hitLeft.collider != null)
+				{
+					Debug.Log("Collided");
+				}
+				else if(Input.GetAxis("Horizontal") > 0 && hitRight != null && hitRight.collider != null)
+				{
+					Debug.Log("Collided");
+				}
+				else
+				{
+					StartCoroutine(move(transform));
+				}
 			}
 		}
 	}
@@ -74,30 +104,30 @@ class TileMovement : MonoBehaviour
 	}
 
 
-		void WalkingAnimation()
-		{
-				if (Input.GetAxis ("Horizontal") < 0) 
+	void WalkingAnimation()
+	{
+			if (Input.GetAxis ("Horizontal") < 0) 
+			{
+					SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
+					spriteRenderer.sprite = playerLeft;
+			}
+			if (Input.GetAxis ("Horizontal") > 0) 
+			{
+					SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
+					spriteRenderer.sprite = playerRight;
+			}
+			if (Input.GetAxis ("Vertical") > 0) 
 				{
-						SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
-						spriteRenderer.sprite = playerLeft;
-				}
-				if (Input.GetAxis ("Horizontal") > 0) 
-				{
-						SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
-						spriteRenderer.sprite = playerRight;
-				}
-				if (Input.GetAxis ("Vertical") > 0) 
-				{
-						SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
-						spriteRenderer.sprite = playerForward;
-				}
-				if (Input.GetAxis ("Vertical") < 0) 
-				{
-						SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
-						spriteRenderer.sprite = playerBackwards;
-				}
+					SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
+					spriteRenderer.sprite = playerForward;
+			}
+			if (Input.GetAxis ("Vertical") < 0) 
+			{
+					SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
+					spriteRenderer.sprite = playerBackwards;
+			}
 
-		}
+	}
 	
 	public IEnumerator move(Transform transform) 
 	{
