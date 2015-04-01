@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &123442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 423442}
+  m_Layer: 2
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &127342
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,9 +26,9 @@ GameObject:
   - 212: {fileID: 21227350}
   - 114: {fileID: 11427350}
   - 61: {fileID: 6143446}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CrateBlue
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +42,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 427344}
   - 65: {fileID: 6527344}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: up
   m_TagString: Box
   m_Icon: {fileID: 0}
@@ -43,7 +58,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 427346}
   - 65: {fileID: 6527346}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: down
   m_TagString: Box
   m_Icon: {fileID: 0}
@@ -59,7 +74,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 427348}
   - 65: {fileID: 6527348}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: right
   m_TagString: Box
   m_Icon: {fileID: 0}
@@ -75,13 +90,25 @@ GameObject:
   m_Component:
   - 4: {fileID: 427350}
   - 65: {fileID: 6527350}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: left
   m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &423442
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123442}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 427342}
+  m_RootOrder: 4
 --- !u!4 &427342
 Transform:
   m_ObjectHideFlags: 1
@@ -89,13 +116,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18, y: 3, z: -1}
+  m_LocalPosition: {x: -26, y: 15, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 427344}
   - {fileID: 427346}
   - {fileID: 427348}
   - {fileID: 427350}
+  - {fileID: 423442}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &427344
@@ -223,6 +251,7 @@ MonoBehaviour:
   right: {fileID: 127348}
   up: {fileID: 127344}
   down: {fileID: 127346}
+  canMove: 0
 --- !u!212 &21227350
 SpriteRenderer:
   m_ObjectHideFlags: 1

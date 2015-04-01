@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &124242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 424242}
+  m_Layer: 2
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &191826
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,7 +24,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 491826}
   - 65: {fileID: 6591826}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: up
   m_TagString: Box
   m_Icon: {fileID: 0}
@@ -25,7 +40,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 491828}
   - 65: {fileID: 6591828}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: down
   m_TagString: Box
   m_Icon: {fileID: 0}
@@ -41,7 +56,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 491830}
   - 65: {fileID: 6591830}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: right
   m_TagString: Box
   m_Icon: {fileID: 0}
@@ -57,7 +72,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 491832}
   - 65: {fileID: 6591832}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: left
   m_TagString: Box
   m_Icon: {fileID: 0}
@@ -75,13 +90,25 @@ GameObject:
   - 212: {fileID: 21291826}
   - 114: {fileID: 11491826}
   - 61: {fileID: 6147516}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CrateGreen
   m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &424242
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124242}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 491834}
+  m_RootOrder: 4
 --- !u!4 &491826
 Transform:
   m_ObjectHideFlags: 1
@@ -137,13 +164,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16, y: 7, z: -1}
+  m_LocalPosition: {x: -27, y: 14, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 491832}
   - {fileID: 491830}
   - {fileID: 491828}
   - {fileID: 491826}
+  - {fileID: 424242}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!61 &6147516
@@ -223,6 +251,7 @@ MonoBehaviour:
   right: {fileID: 191830}
   up: {fileID: 191826}
   down: {fileID: 191828}
+  canMove: 0
 --- !u!212 &21291826
 SpriteRenderer:
   m_ObjectHideFlags: 1

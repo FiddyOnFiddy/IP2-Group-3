@@ -92,18 +92,6 @@ class TileMovement : MonoBehaviour
 	}
 
 
-	void OnCollisionEnter2D(Collision2D coll) 
-	{
-		if (coll != null)
-		{
-			gameObject.transform.rotation = Quaternion.identity;
-			endPosition = startPosition;
-			Debug.Log("collided");
-		}
-		
-	}
-
-
 	void WalkingAnimation()
 	{
 			if (Input.GetAxis ("Horizontal") < 0) 
