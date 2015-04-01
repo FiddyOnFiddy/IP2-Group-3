@@ -79,6 +79,7 @@ public class MoveObstacleScript : MonoBehaviour
 
 			if(hitRight != null && hitRight.collider != null)
 			{
+
 				if(Input.GetAxis ("Horizontal") > 0 && hitRight.collider.tag == "Player" )
 				{
 					//iTween.MoveTo (this.gameObject, new Vector3(player.transform.position.x, player.transform.position.y, 0), 0.3f);

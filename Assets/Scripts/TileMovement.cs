@@ -47,7 +47,6 @@ class TileMovement : MonoBehaviour
 		
 		RaycastHit2D hitDown = Physics2D.Raycast(down.transform.position, -Vector2.up, 0.3f);
 		Debug.DrawRay(down.transform.position, Vector3.down * 0.1f, Color.white);
-	
 
 		WalkingAnimation ();
 
@@ -91,6 +90,15 @@ class TileMovement : MonoBehaviour
 		}
 	}
 
+	void OnCollisionEnter2D(Collision2D coll) 
+	{
+		if (coll != null)
+		{
+			gameObject.transform.rotation = Quaternion.identity;
+			endPosition = startPosition;
+			Debug.Log("collided");
+		}
+	}
 
 	void WalkingAnimation()
 	{

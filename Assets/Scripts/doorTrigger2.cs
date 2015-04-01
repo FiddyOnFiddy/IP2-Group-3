@@ -21,7 +21,7 @@ public class doorTrigger2 : MonoBehaviour
 	{
 		OpenDoor openDoor = GameObject.Find("doorTrigger").GetComponent<OpenDoor>();
 
-		if(other.gameObject.tag == "Player" && openDoor.triggerCount == 6)
+		if(other.gameObject.tag == "Player" && openDoor.triggerCount >= 6)
 		{
 			iTween.MoveBy(door2.gameObject, new Vector3(-1, 0, 0), 1.0f);
 			door2.SetActive(false);
