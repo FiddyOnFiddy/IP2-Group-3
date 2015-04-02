@@ -45,9 +45,14 @@ public class AIBehaviour : MonoBehaviour
 		Debug.DrawLine(gameObject.transform.position, player.transform.position);
 
 
-		if(distance < 0.5f)
+		if(distance < 0.5f && distance > 0.01f)
 		{
 			player.transform.position = GameObject.FindGameObjectWithTag("Checkpoint").transform.position;
+		}
+
+		if(distance < 3.5f)
+		{
+			audio.Play();
 		}
 	}
 

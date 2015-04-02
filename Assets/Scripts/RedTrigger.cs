@@ -3,6 +3,7 @@ using System.Collections;
 
 public class RedTrigger : MonoBehaviour 
 {
+	public Sprite redTriggerNotActive;
 
 	// Use this for initialization
 	void Start ()
@@ -24,6 +25,8 @@ public class RedTrigger : MonoBehaviour
 			OpenDoor openDoor = GameObject.Find("doorTrigger").GetComponent<OpenDoor>();
 			openDoor.triggerCount++;
 			Debug.Log (openDoor.triggerCount);
+			SpriteRenderer spriterenderer = gameObject.GetComponent<SpriteRenderer>();
+			spriterenderer.sprite = redTriggerNotActive;
 		}
 	}
 }

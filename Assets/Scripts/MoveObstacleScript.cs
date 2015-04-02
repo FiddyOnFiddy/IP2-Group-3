@@ -15,6 +15,7 @@ public class MoveObstacleScript : MonoBehaviour
 	public GameObject down;
 	public bool canMove = false;
 
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -39,25 +40,25 @@ public class MoveObstacleScript : MonoBehaviour
 			{
 				//iTween.MoveTo (this.gameObject, new Vector3(right.transform.position.x, right.transform.position.y, 0), 0.3f);
 				iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(1,0,0),"time",0.3,"oncomplete","OnComplete"));
-
+				audio.Play();
 			}
 			else if (Input.GetAxis ("Horizontal") < 0)
 			{
 				//iTween.MoveTo (this.gameObject, new Vector3(left.transform.position.x, left.transform.position.y, 0), 0.3f);
 				iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(-1,0,0),"time",0.3,"oncomplete","OnComplete"));
-
+				audio.Play();
 			}
 			else if (Input.GetAxis("Vertical") > 0 )
 			{
 				//iTween.MoveTo (this.gameObject, new Vector3(up.transform.position.x, up.transform.position.y, 0), 0.3f);
 				iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(0,1,0),"time",0.3,"oncomplete","OnComplete"));
-
+				audio.Play();
 			}
 			else if (Input.GetAxis("Vertical") < 0 )
 			{
 				//iTween.MoveTo (this.gameObject, new Vector3(down.transform.position.x, down.transform.position.y, 0), 0.3f);
 				iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(0,-1,0),"time",0.3,"oncomplete","OnComplete"));
-
+				audio.Play();
 			}
 		}
 
@@ -82,10 +83,8 @@ public class MoveObstacleScript : MonoBehaviour
 
 				if(Input.GetAxis ("Horizontal") > 0 && hitRight.collider.tag == "Player" )
 				{
-					//iTween.MoveTo (this.gameObject, new Vector3(player.transform.position.x, player.transform.position.y, 0), 0.3f);
-					//iTween.MoveBy(this.gameObject, new Vector3(1, 0, 0), 0.7f);
-
 					iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(1f,0,0),"time",pullHorizontal,"oncomplete","OnComplete"));
+					audio.Play();
 				}
 			}
 
@@ -95,6 +94,7 @@ public class MoveObstacleScript : MonoBehaviour
 				{
 					//iTween.MoveBy(this.gameObject, new Vector3(-1, 0, 0), 0.7f);
 					iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(-1f,0,0),"time",pullHorizontal,"oncomplete","OnComplete"));
+					audio.Play();
 
 				}
 			}
@@ -102,9 +102,8 @@ public class MoveObstacleScript : MonoBehaviour
 			{
 				if (Input.GetAxis("Vertical") > 0 && hitUp.collider.tag == "Player")
 				{
-					//iTween.MoveBy(this.gameObject, new Vector3(0, 1, 0), 0.7f);
 					iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(0,1f,0),"time",pullVertical,"oncomplete","OnComplete"));
-
+					audio.Play();
 				}
 			}
 			if(hitDown != null && hitDown.collider != null )
@@ -113,6 +112,7 @@ public class MoveObstacleScript : MonoBehaviour
 				{
 					//iTween.MoveBy(this.gameObject, new Vector3(1, -1, 0), 0.7f);
 					iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(0,-1f,0),"time",pullVertical,"oncomplete","OnComplete"));
+					audio.Play();
 
 				}
 			}

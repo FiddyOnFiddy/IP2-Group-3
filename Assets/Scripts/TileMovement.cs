@@ -85,6 +85,7 @@ class TileMovement : MonoBehaviour
 				else
 				{
 					StartCoroutine(move(transform));
+					audio.Play();
 				}
 			}
 		}

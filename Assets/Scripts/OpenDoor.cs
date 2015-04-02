@@ -29,6 +29,7 @@ public class OpenDoor : MonoBehaviour
 		{
 			iTween.MoveBy(door1.gameObject, new Vector3(-1, 0, 0), 1.0f);
 			door1.SetActive(false);
+			audio.Play();
 		}
 
 		if(triggerCount == 6)
@@ -37,6 +38,7 @@ public class OpenDoor : MonoBehaviour
 			barrier.SetActive(false);
 			iTween.MoveBy(barrier2.gameObject, new Vector3(1, 0, 0), 1.0f);
 			barrier2.SetActive(false);
+			audio.Play();
 		}
 	}
 
@@ -50,6 +52,7 @@ public class OpenDoor : MonoBehaviour
 			door3.SetActive(false);
 			cameraMain.enabled = false;
 			camera2.enabled = true;
+			audio.Play();
 		}
 	}
 }

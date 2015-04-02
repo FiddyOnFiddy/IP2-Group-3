@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BlueTriggr : MonoBehaviour 
 {
+	public Sprite blueTriggerNotActive;
 
 	// Use this for initialization
 	void Start () 
@@ -24,6 +25,8 @@ public class BlueTriggr : MonoBehaviour
 			OpenDoor openDoor = GameObject.Find("doorTrigger").GetComponent<OpenDoor>();
 			openDoor.triggerCount ++;
 			Debug.Log (openDoor.triggerCount);
+			SpriteRenderer spriterenderer = gameObject.GetComponent<SpriteRenderer>();
+			spriterenderer.sprite = blueTriggerNotActive;
 		}
 	}
 }
