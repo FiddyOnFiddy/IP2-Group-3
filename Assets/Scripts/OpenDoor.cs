@@ -27,16 +27,16 @@ public class OpenDoor : MonoBehaviour
 	{
 		if(triggerCount == 3)
 		{
-			iTween.MoveBy(door1.gameObject, new Vector3(-1, 0, 0), 1.0f);
+			//iTween.MoveBy(door1.gameObject, new Vector3(-1, 0, 0), 1.0f);
 			door1.SetActive(false);
 			audio.Play();
 		}
 
 		if(triggerCount == 6)
 		{
-			iTween.MoveBy(barrier.gameObject, new Vector3(-1, 0, 0), 1.0f);
+			//iTween.MoveBy(barrier.gameObject, new Vector3(-1, 0, 0), 1.0f);
 			barrier.SetActive(false);
-			iTween.MoveBy(barrier2.gameObject, new Vector3(1, 0, 0), 1.0f);
+			//iTween.MoveBy(barrier2.gameObject, new Vector3(1, 0, 0), 1.0f);
 			barrier2.SetActive(false);
 			audio.Play();
 		}
@@ -46,9 +46,9 @@ public class OpenDoor : MonoBehaviour
 	{
 		if(other.gameObject.tag == "Player")
 		{
-			iTween.MoveBy(door2.gameObject, new Vector3(-1, 0, 0), 1.0f);
+			//iTween.MoveBy(door2.gameObject, new Vector3(-1, 0, 0), 1.0f);
 			door2.SetActive(false);
-			iTween.MoveBy(door3.gameObject, new Vector3(1, 0, 0), 1.0f);
+		//	iTween.MoveBy(door3.gameObject, new Vector3(1, 0, 0), 1.0f);
 			door3.SetActive(false);
 			cameraMain.enabled = false;
 			camera2.enabled = true;

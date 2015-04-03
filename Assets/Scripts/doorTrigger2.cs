@@ -23,9 +23,9 @@ public class doorTrigger2 : MonoBehaviour
 
 		if(other.gameObject.tag == "Player" && openDoor.triggerCount >= 6)
 		{
-			iTween.MoveBy(door2.gameObject, new Vector3(-1, 0, 0), 1.0f);
+			//iTween.MoveBy(door2.gameObject, new Vector3(-1, 0, 0), 1.0f);
 			door2.SetActive(false);
-			iTween.MoveBy(door3.gameObject, new Vector3(1, 0, 0), 1.0f);
+			//iTween.MoveBy(door3.gameObject, new Vector3(1, 0, 0), 1.0f);
 			door3.SetActive(false);
 			audio.Play();
 		}

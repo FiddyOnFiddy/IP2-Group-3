@@ -21,6 +21,7 @@ public class GreenTrigger : MonoBehaviour
 	{
 		if(other.gameObject.name == "CrateGreen")
 		{
+			audio.Play();
 			other.gameObject.SetActive(false);
 			OpenDoor openDoor = GameObject.Find("doorTrigger").GetComponent<OpenDoor>();
 			openDoor.triggerCount ++;

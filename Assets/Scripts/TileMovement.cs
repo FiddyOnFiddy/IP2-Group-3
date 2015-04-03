@@ -31,7 +31,6 @@ class TileMovement : MonoBehaviour
 	public GameObject right;
 	public GameObject up;
 	public GameObject down;
-	
 
 	public void Update() 
 	{
@@ -90,6 +89,7 @@ class TileMovement : MonoBehaviour
 			}
 		}
 	}
+
 
 	void OnCollisionEnter2D(Collision2D coll) 
 	{

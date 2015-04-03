@@ -31,12 +31,14 @@ public class DoorTriggers : MonoBehaviour
 	{
 		if(gameObject.name == "Room1Trigger" && other.gameObject.tag == "Player")
 		{
+			audio.Play();
 			room1Door.SetActive(false);
 			room1Camera.enabled = true;
 			hallwayCamera.enabled = false;	
 		}
 		if(gameObject.name == "Room2Trigger" && other.gameObject.tag == "Player")
 		{
+			audio.Play();
 			room2Door.SetActive(false);
 			room2Camera.enabled = true;
 			hallwayCamera.enabled = false;	

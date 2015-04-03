@@ -26,10 +26,16 @@ public class AIBehaviour : MonoBehaviour
 	public float moveSpeed = 0.1f;
 	private float radius = 1f;
 
+	public GameObject checkpoint;
+	public AudioClip damaged;
+	public AudioClip growl;
+
+
 	// Use this for initialization
 	void Start () 
 	{
 		GetPath();
+		checkpoint = GameObject.FindGameObjectWithTag("Checkpoint");
 	}
 	
 	// Update is called once per frame
@@ -45,15 +51,21 @@ public class AIBehaviour : MonoBehaviour
 		Debug.DrawLine(gameObject.transform.position, player.transform.position);
 
 
-		if(distance < 0.5f && distance > 0.01f)
+		if(distance < 0.5f)
 		{
+			Debug.Log ("Player has collided");
 			player.transform.position = GameObject.FindGameObjectWithTag("Checkpoint").transform.position;
+			audio.clip = damaged;
+			audio.Play();
 		}
 
 		if(distance < 3.5f)
 		{
+			audio.clip = growl;
 			audio.Play();
+			audio.volume = 0.7f;
 		}
+
 	}
 
 	void Move()
