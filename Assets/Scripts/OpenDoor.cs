@@ -16,10 +16,14 @@ public class OpenDoor : MonoBehaviour
 	public Camera cameraMain;
 	public Camera camera2;
 
+	public GameObject mirror1;
+	public GameObject mirror2;
+
 	// Use this for initialization
 	void Start () 
 	{
-	
+		mirror1.SetActive(false);
+		mirror2.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -39,6 +43,12 @@ public class OpenDoor : MonoBehaviour
 			//iTween.MoveBy(barrier2.gameObject, new Vector3(1, 0, 0), 1.0f);
 			barrier2.SetActive(false);
 			audio.Play();
+			mirror1.SetActive(true);
+		}
+
+		if(triggerCount == 9)
+		{
+			mirror2.SetActive(true);
 		}
 	}
 
