@@ -28,6 +28,7 @@ public class doorTrigger2 : MonoBehaviour
 			//iTween.MoveBy(door3.gameObject, new Vector3(1, 0, 0), 1.0f);
 			door3.SetActive(false);
 			audio.Play();
+			audio.enabled = false;
 		}
 	}
 }

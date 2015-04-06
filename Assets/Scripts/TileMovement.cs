@@ -34,6 +34,15 @@ class TileMovement : MonoBehaviour
 
 	public void Update() 
 	{
+		GameObject gameData = GameObject.Find("GameData");
+		if (gameData == null)
+		{
+			gameData = new GameObject();
+			gameData.name = "GameData";
+			gameData.AddComponent("GameDataScript");
+		}
+
+
 
 		RaycastHit2D hitRight = Physics2D.Raycast(right.transform.position, Vector2.right, 0.3f );
 		Debug.DrawRay(right.transform.position, Vector3.right * 0.1f, Color.black);

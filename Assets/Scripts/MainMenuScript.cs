@@ -25,7 +25,6 @@ public class MainMenuScript : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-
 	}
 
 	public void PlayButton()
@@ -36,12 +35,29 @@ public class MainMenuScript : MonoBehaviour
 
 	public void OptionsMenu()
 	{
+		Application.LoadLevel ("OptionsScene");
 		audio.Play();
 	}
 
 	public void QuitButton()
 	{
 		audio.Play();
+		#if UNITY_EDITOR
+		UnityEditor.EditorApplication.isPlaying = false;
+		#else
 		Application.Quit();
+		#endif
+	}
+
+	public void Replay()
+	{
+		audio.Play ();
+		Application.LoadLevel("TutorialLevel");
+	}
+
+	public void BackButton()
+	{
+		audio.Play();
+		Application.LoadLevel("MainMenu");
 	}
 }
