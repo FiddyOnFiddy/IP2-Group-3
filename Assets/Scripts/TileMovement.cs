@@ -1,6 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+
+
+
+//--------------------------------------------------------------------------------------------
+//    NOTE:This script was taken from the internet. http://wiki.unity3d.com/index.php/GridMove
+//--------------------------------------------------------------------------------------------
+
 class TileMovement : MonoBehaviour 
 {
 	public float moveSpeed = 3f;
@@ -71,7 +78,8 @@ class TileMovement : MonoBehaviour
 					input.x = 0;
 				}
 			}
-			
+
+			//Movement is disabled in the direction of the raycast that has been hit, otherwise movement is enabled.
 			if (input != Vector2.zero) 
 			{
 				if(Input.GetAxis("Vertical") < 0 && hitDown != null && hitDown.collider != null)
@@ -110,6 +118,7 @@ class TileMovement : MonoBehaviour
 		}
 	}
 
+	//Changes the sprite depending which way the player is moving.
 	void WalkingAnimation()
 	{
 			if (Input.GetAxis ("Horizontal") < 0) 

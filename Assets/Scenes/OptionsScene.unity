@@ -430,7 +430,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Controls: \tW/A/S/D To Move\n\n\n\t\t\t\t\tHold 'F' while moving to push
-    boxes\n\n\t\t\t\t\t\n\t\t\t\t\tHold 'E' While moving to pull boxes\n\n\t"
+    boxes\n\n\t\t\t\t\t\n\t\t\t\t\tHold 'E' While moving to pull boxes\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\tPress
+    'Esc' or 'P' to pause the game\n\t"
 --- !u!222 &829548833
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -4400,7 +4400,7 @@ BoxCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 181493536}
   m_GameObject: {fileID: 141815954}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Size: {x: 1, y: 1}
@@ -5660,6 +5660,10 @@ Prefab:
     - target: {fileID: 199350, guid: 8c233219165d86d40afc4a49c15864fb, type: 2}
       propertyPath: m_Name
       value: Room1Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147056, guid: 8c233219165d86d40afc4a49c15864fb, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c233219165d86d40afc4a49c15864fb, type: 2}
@@ -12565,7 +12569,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 6.80000019
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -23343,7 +23347,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 6.80000019
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -44553,7 +44557,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1288426076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.5, y: -4.5, z: 0}
+  m_LocalPosition: {x: -.5, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2144313870}
@@ -62528,7 +62532,7 @@ BoxCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 1871232713}
   m_GameObject: {fileID: 1755392005}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Size: {x: 1, y: 1}
@@ -65580,7 +65584,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1832245158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.6000004, y: 13.5699997, z: 0}
+  m_LocalPosition: {x: -15.1400003, y: 13.5699997, z: 0}
   m_LocalScale: {x: 1.80000007, y: 1.26750231, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -67040,6 +67044,10 @@ Prefab:
     - target: {fileID: 199350, guid: 8c233219165d86d40afc4a49c15864fb, type: 2}
       propertyPath: m_Name
       value: Room2Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147056, guid: 8c233219165d86d40afc4a49c15864fb, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c233219165d86d40afc4a49c15864fb, type: 2}
@@ -75549,6 +75557,7 @@ GameObject:
   - 4: {fileID: 2095065253}
   - 61: {fileID: 2095065252}
   - 114: {fileID: 2095065251}
+  - 82: {fileID: 2095065254}
   m_Layer: 2
   m_Name: Room2Trigger
   m_TagString: Untagged
@@ -75590,11 +75599,69 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2095065250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.2900009, y: 21.5300007, z: 0}
+  m_LocalPosition: {x: -27.7600002, y: 21.5300007, z: 0}
   m_LocalScale: {x: 1.80000007, y: 1.46250188, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 28
+--- !u!82 &2095065254
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2095065250}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: f2047a008867e8d49819889381aa46a4, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1001 &2095658251
 Prefab:
   m_ObjectHideFlags: 0

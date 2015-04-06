@@ -28,6 +28,7 @@ public class MoveObstacleScript : MonoBehaviour
 		MoveObstacle();
 	}
 
+	//Uses iTween to push the box 1 unit or pull the box 1 unit. Ray casts are used to detect which side the player is on when pulling the boxes.
 	void MoveObstacle()
 	{
 		float dist = Vector3.Distance(player.transform.position, gameObject.transform.position);

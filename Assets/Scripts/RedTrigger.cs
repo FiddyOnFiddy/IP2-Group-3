@@ -17,6 +17,7 @@ public class RedTrigger : MonoBehaviour
 
 	}
 
+	//Checks if the correct crate has landed in the trigger
 	void OnTriggerEnter2D (Collider2D other)
 	{
 		if(other.gameObject.name == "CrateRed")

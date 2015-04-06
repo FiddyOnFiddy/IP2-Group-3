@@ -17,15 +17,14 @@ public class doorTrigger2 : MonoBehaviour
 	
 	}
 
+
 	void OnTriggerEnter2D (Collider2D other)
 	{
 		OpenDoor openDoor = GameObject.Find("doorTrigger").GetComponent<OpenDoor>();
 
 		if(other.gameObject.tag == "Player" && openDoor.triggerCount >= 6)
 		{
-			//iTween.MoveBy(door2.gameObject, new Vector3(-1, 0, 0), 1.0f);
 			door2.SetActive(false);
-			//iTween.MoveBy(door3.gameObject, new Vector3(1, 0, 0), 1.0f);
 			door3.SetActive(false);
 			audio.Play();
 			audio.enabled = false;

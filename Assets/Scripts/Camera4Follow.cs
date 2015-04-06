@@ -19,6 +19,7 @@ public class Camera4Follow : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		//Follows the target(which is the player) NOTE: This piece of code was taken from the unity forums
 		if (target && camera2.enabled == true)
 		{
 			Vector3 point = camera2.WorldToViewportPoint(target.position);

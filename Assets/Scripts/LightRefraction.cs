@@ -27,6 +27,7 @@ public class LightRefraction : MonoBehaviour
 		Laser();
 	}
 
+	//Gets the hit before lasthit and disables the linerenderer
 	public void NotHit()
 	{
 		if (lasthit) {
@@ -43,6 +44,7 @@ public class LightRefraction : MonoBehaviour
 				}
 	}
 
+	//Sents a raycast out of the y-axis of the transform and a linerenderer is drawn using the raycasts position. This repeats for every object tagged "Mirror" that it hits.
 	public void Laser()
 	{
 

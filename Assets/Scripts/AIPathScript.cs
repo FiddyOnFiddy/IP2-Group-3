@@ -10,7 +10,7 @@ public class AIPathScript : MonoBehaviour
 
 
 
-
+	//Creates a new list of pathObjs
 	void OnDrawGizmos()
 	{
 		Gizmos.color = rayColor;

@@ -18,6 +18,7 @@ public class HallwayCameraScript : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		//Follows the target(which is the player) NOTE: This piece of code was taken from the unity forums
 		if (target && camera.enabled == true)
 		{
 			Vector3 point = camera.WorldToViewportPoint(target.position);

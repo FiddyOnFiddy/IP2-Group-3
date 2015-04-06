@@ -20,7 +20,7 @@ public class EndGameScript : MonoBehaviour
 	{
 		if(other.gameObject.tag == "Player")
 		{
-			Application.LoadLevel("Level01");
+			Application.LoadLevel("EndMenu");
 		}
 	}
 }

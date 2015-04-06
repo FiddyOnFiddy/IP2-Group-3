@@ -45,6 +45,8 @@ public class AIBehaviour : MonoBehaviour
 		CollisionDetection();
 	}
 
+
+	//Checks if the player has collided with the enemy and then sends them to the checkpoint.
 	void CollisionDetection()
 	{
 		float distance = Vector3.Distance(gameObject.transform.position, player.transform.position);
@@ -68,6 +70,7 @@ public class AIBehaviour : MonoBehaviour
 
 	}
 
+	//Tells the AI to move to the current path object and tells it whether to reset or reverse the path.
 	void Move()
 	{
 		float dis = Vector3.Distance(gameObject.transform.position, path[currentPathObj].position);
@@ -93,6 +96,7 @@ public class AIBehaviour : MonoBehaviour
 		iTween.MoveTo (gameObject, new Vector3(path[currentPathObj].position.x, path[currentPathObj].position.y , gameObject.transform.position.z), moveSpeed);
 	}
 
+	//This is how the enemy gets the path
 	void GetPath()
 	{
 		List<Transform> pathObjs = new List<Transform>();
@@ -106,12 +110,5 @@ public class AIBehaviour : MonoBehaviour
 				path.Add (pathObj);
 			}
 		}
-	}
-
-	static T GetRandomEnum<T>()
-	{
-		System.Array A = System.Enum.GetValues(typeof(T));
-		T V = (T)A.GetValue(UnityEngine.Random.Range(0,A.Length));
-		return V;
 	}
 }
