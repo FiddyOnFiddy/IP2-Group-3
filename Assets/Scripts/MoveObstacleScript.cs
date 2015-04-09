@@ -39,25 +39,21 @@ public class MoveObstacleScript : MonoBehaviour
 		{
 			if(Input.GetAxis("Horizontal") > 0)
 			{
-				//iTween.MoveTo (this.gameObject, new Vector3(right.transform.position.x, right.transform.position.y, 0), 0.3f);
 				iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(1,0,0),"time",0.3,"oncomplete","OnComplete"));
 				audio.Play();
 			}
 			else if (Input.GetAxis ("Horizontal") < 0)
 			{
-				//iTween.MoveTo (this.gameObject, new Vector3(left.transform.position.x, left.transform.position.y, 0), 0.3f);
 				iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(-1,0,0),"time",0.3,"oncomplete","OnComplete"));
 				audio.Play();
 			}
 			else if (Input.GetAxis("Vertical") > 0 )
 			{
-				//iTween.MoveTo (this.gameObject, new Vector3(up.transform.position.x, up.transform.position.y, 0), 0.3f);
 				iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(0,1,0),"time",0.3,"oncomplete","OnComplete"));
 				audio.Play();
 			}
 			else if (Input.GetAxis("Vertical") < 0 )
 			{
-				//iTween.MoveTo (this.gameObject, new Vector3(down.transform.position.x, down.transform.position.y, 0), 0.3f);
 				iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(0,-1,0),"time",0.3,"oncomplete","OnComplete"));
 				audio.Play();
 			}
@@ -93,7 +89,6 @@ public class MoveObstacleScript : MonoBehaviour
 			{
 				if (Input.GetAxis ("Horizontal") < 0 && hitLeft.collider.tag == "Player")
 				{
-					//iTween.MoveBy(this.gameObject, new Vector3(-1, 0, 0), 0.7f);
 					iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(-1f,0,0),"time",pullHorizontal,"oncomplete","OnComplete"));
 					audio.Play();
 
@@ -111,7 +106,6 @@ public class MoveObstacleScript : MonoBehaviour
 			{
 				if (Input.GetAxis("Vertical") < 0 && hitDown.collider.tag == "Player")
 				{
-					//iTween.MoveBy(this.gameObject, new Vector3(1, -1, 0), 0.7f);
 					iTween.MoveBy(this.gameObject,iTween.Hash("amount",new Vector3(0,-1f,0),"time",pullVertical,"oncomplete","OnComplete"));
 					audio.Play();
 
